@@ -10,8 +10,9 @@ import SwiftData
 
 struct ContentView: View {
     @State private var path = [NoteModel]()
-    @Environment(\.modelContext) var modelContext
+    @Environment(\.modelContext) private var modelContext
     @Query var notes: [NoteModel]
+    @State var viewModel: ViewModel
     var body: some View {
         NavigationStack(path: $path){
             List{
@@ -20,7 +21,7 @@ struct ContentView: View {
                         Text(note.title)
                     }
                 }
-                .onDelete(perform: deleteNote)
+                .onDelete(perform: viewModel.deleteNote)
             }
             .navigationTitle("Notes App")
             .navigationDestination(for: NoteModel.self){ note in
@@ -28,27 +29,15 @@ struct ContentView: View {
                 
             }
             .toolbar{
-                Button("Add note", systemImage: "plus", action: addnote)
+                Button("Add note", systemImage: "plus", action: viewModel.addnote)
             }
         }
     }
     
-    func addnote(){
-        let note = NoteModel(title: "", date: Date())
-        modelContext.insert(note)
-        path.append(note)
-        print("Created note \(note.title)")
-    }
     
-    func deleteNote(at offsets: IndexSet){
-        for offset in offsets{
-            let note = notes[offset]
-            modelContext.delete(note)
-        }
-        
-    }
+    
 }
 
-#Preview {
-    ContentView()
-}
+//#Preview {
+//    ContentView(viewModel: ViewModel(modelContext: container.mainContext))
+//}

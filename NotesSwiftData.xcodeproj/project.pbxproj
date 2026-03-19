@@ -13,6 +13,7 @@
 		9D8569FE2F6A0A8E001EDC5D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D8569FD2F6A0A8E001EDC5D /* Preview Assets.xcassets */; };
 		9D856A052F6A0A9F001EDC5D /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D856A042F6A0A9F001EDC5D /* NoteModel.swift */; };
 		9D856A072F6A14E1001EDC5D /* NoteEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D856A062F6A14E1001EDC5D /* NoteEditView.swift */; };
+		9D856A092F6C14AD001EDC5D /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D856A082F6C14AD001EDC5D /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		9D8569FD2F6A0A8E001EDC5D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9D856A042F6A0A9F001EDC5D /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		9D856A062F6A14E1001EDC5D /* NoteEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteEditView.swift; sourceTree = "<group>"; };
+		9D856A082F6C14AD001EDC5D /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				9D8569FC2F6A0A8E001EDC5D /* Preview Content */,
 				9D856A042F6A0A9F001EDC5D /* NoteModel.swift */,
 				9D856A062F6A14E1001EDC5D /* NoteEditView.swift */,
+				9D856A082F6C14AD001EDC5D /* ViewModel.swift */,
 			);
 			path = NotesSwiftData;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D856A092F6C14AD001EDC5D /* ViewModel.swift in Sources */,
 				9D856A072F6A14E1001EDC5D /* NoteEditView.swift in Sources */,
 				9D8569F92F6A0A8D001EDC5D /* ContentView.swift in Sources */,
 				9D856A052F6A0A9F001EDC5D /* NoteModel.swift in Sources */,

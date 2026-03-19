@@ -10,10 +10,18 @@ import SwiftData
 
 @main
 struct NotesSwiftDataApp: App {
+    let container: ModelContainer
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(/*modelContext: container.mainContext,*/ viewModel: ViewModel(modelContext: container.mainContext))
         }
         .modelContainer(for: NoteModel.self)
     }
+    init() {
+           do {
+               container = try ModelContainer(for: NoteModel.self)
+           } catch {
+               fatalError("Failed to create ModelContainer for Note.")
+           }
+       }
 }
