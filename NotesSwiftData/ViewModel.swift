@@ -7,19 +7,34 @@
 
 import Foundation
 import SwiftData
+import Observation
 
 @Observable
+@MainActor
 class ViewModel{
     var modelContext: ModelContext
     var notes = [NoteModel]()
+    var searchText: String = ""
     
     init(modelContext: ModelContext) {
         self.modelContext = modelContext
         fetchData()
     }
     
+    var filteredNotes: [NoteModel]{
+        if searchText.isEmpty{
+            return notes
+        }
+        else {
+            return notes.filter{ note in
+                note.title.localizedStandardContains(searchText) ||
+                note.info.localizedStandardContains(searchText)
+            }
+        }
+    }
+    
     func addnote(){
-        let note = NoteModel(title: "", date: Date())
+        let note = NoteModel(title: "", date: Date(), info: "")
         modelContext.insert(note)
         print("Created note \(note.title)")
     }

@@ -12,9 +12,11 @@ import SwiftData
 class NoteModel{
     var title: String
     var date: Date
+    var info: String = ""
     
-    init(title: String, date: Date) {
+    init(title: String, date: Date, info: String) {
         self.title = title
         self.date = date
+        self.info = info
     }
 }
