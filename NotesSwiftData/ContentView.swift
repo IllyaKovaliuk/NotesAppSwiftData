@@ -17,16 +17,19 @@ struct ContentView: View {
     var body: some View {
         NavigationStack(path: $path){
             List{
-                ForEach(notes){ note in
+                ForEach(viewModel.filteredNotes){ note in
                     NavigationLink(value: note){
                         Text(note.title)
                         Text(selectedDate.formatted(.dateTime.weekday(.wide).day()))
                             .font(.subheadline)
                             .fontWeight(.thin)
+                        Text(note.info)
                     }
                 }
                 .onDelete(perform: viewModel.deleteNote)
             }
+            
+            .searchable(text: $viewModel.searchText)
             .navigationTitle("Notes App")
             .navigationDestination(for: NoteModel.self){ note in
                 NoteEditView(note: note, selectedDate: $selectedDate)
@@ -38,10 +41,7 @@ struct ContentView: View {
         }
     }
     
-    
-    
 }
-
 //#Preview {
 //    ContentView(viewModel: ViewModel(modelContext: container.mainContext))
 //}
